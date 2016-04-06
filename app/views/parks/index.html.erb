@@ -16,6 +16,7 @@
   <tbody>
     <% @parks.each do |park| %>
       <tr>
+        <td><%= image_tag park.image.url(:medium) %></td>
         <td><%= park.title %></td>
         <td><%= park.description %></td>
         <td><%= park.location %></td>
