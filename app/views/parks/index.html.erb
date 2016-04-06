@@ -1,34 +1,19 @@
-<p id="notice"><%= notice %></p>
+<% if !user_signed_in? %> 
 
-<h1>Listing Parks</h1>
+  <div class="jumbotron">
+    <h1>Discover The Best National Parks</h1>
+    <h3>Leave reviews of parks you've visited</h3> 
+    <p><%= link_to "Sign Up to write a review", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Location</th>
-      <th>Rating</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @parks.each do |park| %>
-      <tr>
-        <td><%= image_tag park.image.url(:medium) %></td>
-        <td><%= park.title %></td>
-        <td><%= park.description %></td>
-        <td><%= park.location %></td>
-        <td><%= park.rating %></td>
-        <td><%= link_to 'Show', park %></td>
-        <td><%= link_to 'Edit', edit_park_path(park) %></td>
-        <td><%= link_to 'Destroy', park, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% end %>
+  <div class ="row">
+    <% @parks.each do |park| %> 
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <%= link_to (image_tag park.image.url(:medium), class: 'image'), park %>
+          </div>
+        </div>
     <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Park', new_park_path %>
+  </div>

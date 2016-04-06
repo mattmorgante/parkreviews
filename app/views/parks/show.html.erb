@@ -1,23 +1,30 @@
-<%= image_tag @park.image.url(:medium) %>
-<p>
-  <strong>Title:</strong>
-  <%= @park.title %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row"></div>
+      <div class="cold-md-4">
+        <%= image_tag @park.image.url(:medium) %>
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><strong>Title:</strong></td>
+                <td><%= @park.title %></td>
+              </tr>
+              <tr>
+                <td><strong>Description:</strong></td>
+                <td><%= @park.description %></td>
+              </tr>
+              <tr>
+                <td><strong>Location:</strong></td>
+                <td><%= @park.location %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @park.description %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @park.location %>
-</p>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @park.rating %>
-</p>
-
-<%= link_to 'Edit', edit_park_path(@park) %> |
-<%= link_to 'Back', parks_path %>
+<%= link_to 'Edit', edit_park_path(@park), class: "btn btn-default" %>
+<%= link_to 'Back', parks_path, class: "btn btn-default" %>
