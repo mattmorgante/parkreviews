@@ -7,6 +7,7 @@ class ParksController < ApplicationController
   end
 
   def show
+    @reviews = Review.where(park_id: @park.id).order("created_at DESC")
   end
 
   # GET /parks/new

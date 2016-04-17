@@ -20,7 +20,25 @@
               </tr>
             </tbody>
           </table>
+          <%= link_to "Write a Review", new_park_review_path(@park) %>
         </div>
+      </div>
+      <div class="col-md-7 col-md-offset-1">
+        <h1 class="review_title"><%= @park.title %></h1>
+        <p><%= @park.description %></p>
+
+        <% if @reviews.blank? %> 
+          <h3>No reviews yet. Add the first!</h3>
+          <%= link_to "Write A Review", new_park_review_path(@park), class: "btn btn-default" %>
+
+        <% else %> 
+          <% @reviews.each do |r| %> 
+            <div class="rating">
+              <%= r.rating %> 
+              <%= r.comment %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

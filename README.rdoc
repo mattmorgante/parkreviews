@@ -5,10 +5,11 @@ Finished
 * add images using paperclip 
 * users with devise 
 * nested routes and forms for reviews within parks 
+* bootstrap install and style
 
 To DO 
 
 * reviews belong to users 
-
+* add stars to rating system
 * nest reviews within parks 
 * elastic search 
