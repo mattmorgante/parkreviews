@@ -8,6 +8,12 @@ class ParksController < ApplicationController
 
   def show
     @reviews = Review.where(park_id: @park.id).order("created_at DESC")
+
+    if @review.blank?
+      @avg_review = 0 
+    else 
+      @avg_review = @reviews.average(:rating).round(2)
+    end 
   end
 
   # GET /parks/new

@@ -1,8 +1,10 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="row"></div>
-      <div class="cold-md-4">
+      <div class="col-md-4">
         <%= image_tag @park.image.url(:medium) %>
+        <div class="star-rating" data-score= <%= @avg_review %> ></div>
+        <em><%= "#{@reviews.length} reviews" %></em>
         <div class="table-responsive">
           <table class="table">
             <tbody>
@@ -23,19 +25,18 @@
           <%= link_to "Write a Review", new_park_review_path(@park) %>
         </div>
       </div>
-      <div class="col-md-7 col-md-offset-1">
+      <div class="col-md-6 col-md-offset-1">
         <h1 class="review_title"><%= @park.title %></h1>
         <p><%= @park.description %></p>
 
         <% if @reviews.blank? %> 
           <h3>No reviews yet. Add the first!</h3>
           <%= link_to "Write A Review", new_park_review_path(@park), class: "btn btn-default" %>
-
         <% else %> 
           <% @reviews.each do |r| %> 
-            <div class="rating">
-              <%= r.rating %> 
-              <%= r.comment %>
+            <div class="reviews">
+              <div class="star-rating" data-score= <%= r.rating %> ></div>
+              <p><%= r.comment %></p>
             </div>
           <% end %>
         <% end %>
@@ -46,3 +47,14 @@
 
 <%= link_to 'Edit', edit_park_path(@park), class: "btn btn-default" %>
 <%= link_to 'Back', parks_path, class: "btn btn-default" %>
+
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>

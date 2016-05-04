@@ -7,6 +7,7 @@ gem 'devise'
 gem 'awesome_print'
 gem 'paperclip'
 gem 'bootstrap-sass'
+gem 'searchkick', '0.8.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets

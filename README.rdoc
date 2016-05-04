@@ -6,6 +6,7 @@ Finished
 * users with devise 
 * nested routes and forms for reviews within parks 
 * bootstrap install and style
+* implement stars using raty.js for reviews 
 
 To DO 
 
